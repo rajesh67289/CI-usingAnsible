@@ -27,17 +27,12 @@ pipeline {
             }
         }
      
-        
-         stage('Execute Maven') {
+          stage('Execute Maven') {
            steps {
              
                 sh 'mvn package'             
           }
         }
-        
-        
-         
-        
         
         
         stage('Ansible Deploy') {
