@@ -17,10 +17,10 @@
   get_url: url=https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.84/bin/apache-tomcat-8.5.84.tar.gz dest=/opt/apache-tomcat-8.5.84.tar.gz
 
 - name: Extract archive
-  command: chdir=/usr/share /bin/tar xvf /opt/apache-tomcat-8.5.84.tar.gz -C /opt/ creates=/opt/apache-tomcat-8.5.84
+  command: chdir=/usr/share /bin/tar xvf /opt/apache-tomcat-8.5.84.tar.gz -C /opt/ creates=/opt/tomcat8
 
 - name: Symlink install directory
-  file: src=/opt/apache-tomcat-8.5.84 path=/usr/share/tomcat state=link
+  file: src=/opt/tomcat8 path=/usr/share/tomcat state=link
 
 - name: Change ownership of Tomcat installation
   file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
@@ -31,14 +31,14 @@
   
 - name: Create  sample directory
   file: 
-    path: "/opt/apache-tomcat-8.5.84/webapps/samples"
+    path: "/opt/tomcat8/webapps/samples"
     state: directory
     mode: 0777
   become: true
   
 
 - name: copy war file
-  copy: src=./target/LoginWebApp-1.war dest=/opt/apache-tomcat-8.5.84/webapps/
+  copy: src=./target/LoginWebApp-1.war dest=/opt/tomcat8/webapps/
 
 
   notify: restart tomcat
