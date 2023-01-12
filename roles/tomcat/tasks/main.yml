@@ -50,4 +50,8 @@
   service: name=tomcat state=started enabled=yes
 
 - name: wait for tomcat to start
-  wait_for: port={{http_port}}
+  wait_for:
+      path: /opt/apache-tomcat-8.5.84/logs/catalina.out
+      search_regex: "Server startup"
+      # set timeout if it usually takes more than 300 seconds to start
+      timeout: 600
