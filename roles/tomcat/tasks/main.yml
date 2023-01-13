@@ -14,7 +14,7 @@
   become_method: sudo
 
 - name: Download Tomcat
-  get_url: url=https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.84/bin/apache-tomcat-8.5.84.tar.gz dest=/opt/apache-tomcat-8.5.84.tar.gz
+  copy: src=apache-tomcat-8.5.84.tar.gz dest=/opt/apache-tomcat-8.5.84.tar.gz mode=0755
 
 - name: Extract archive
   command: chdir=/usr/share /bin/tar xvf /opt/apache-tomcat-8.5.84.tar.gz -C /opt/ creates=/opt/apache-tomcat-8.5.84
