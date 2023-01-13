@@ -41,7 +41,7 @@ pipeline {
                  
              
                
-               sh "ansible-playbook main.yml -i inventories/dev/hosts --user jenkins --key-file ~/.ssh/id_rsa"
+               ansiblePlaybook credentialsId: '357a9f97-fba5-4112-b118-ed00a5b01131', inventory: 'inventories/dev/hosts', playbook: 'mail.yml'
 
                
             
