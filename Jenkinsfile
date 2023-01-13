@@ -14,15 +14,7 @@ pipeline {
              
           }
         }
-         stage('Tools Init') {
-            steps {
-                script {
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"                    
-            }
-            }
-        }
-     
+         
           stage('Execute Maven') {
            steps {
              
