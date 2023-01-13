@@ -30,7 +30,7 @@ pipeline {
                  
              
                
-               ansiblePlaybook credentialsId: '357a9f97-fba5-4112-b118-ed00a5b01131', inventory: 'inventories/dev/hosts', playbook: 'main.yml'
+               ansiblePlaybook extras: '-T 3000', credentialsId: '357a9f97-fba5-4112-b118-ed00a5b01131', inventory: 'inventories/dev/hosts', playbook: 'main.yml'
 
                
             
